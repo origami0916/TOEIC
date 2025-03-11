@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEMO - 最短2ヶ月でTOEIC800点突破！</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans JP', Arial, sans-serif;
+        }
+        
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            scroll-behavior: smooth;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* 共通スタイル */
+        section {
+            padding: 80px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 4px;
+            background: #FF6600;
+            bottom: -10px;
+            left: 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .highlight {
+            background: linear-gradient(transparent 60%, #FFD700 40%);
+            font-weight: 700;
+            padding: 0 4px;
+        }
+
+        /* ファーストビューのスタイル */
+        .hero-section {
+            height: 100vh;
+            min-height: 600px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        /* 背景画像 - 右側に配置 */
+        .bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: url('images/background.jpg') right center/cover no-repeat;
+            background-color: #2b5876; /* フォールバック背景色 */
+        }
+
+        /* 背景オーバーレイ - 画像の上に重ねる半透明レイヤー（明るくした） */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(43, 88, 118, 0.4) 0%, rgba(78, 67, 118, 0.2) 100%);
+            z-index: 1;
+        }
+
+        /* 斜めの装飾 */
+        .diagonal-accent {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: rgba(255, 102, 0, 0.1);
+            clip-path: polygon(100% 0, 40% 0, 100% 100%);
+            z-index: 2;
+        }
+
+        /* コンテンツコンテナ */
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 10%;
+        }
+
+        .content-wrapper {
+            max-width: 600px;
+            text-align: left;
+            background: rgba(0, 0, 0, 0.2); /* テキスト背景を少し暗くして視認性を確保 */
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px); /* モダンなブラウザでは背景をぼかす効果 */
+        }
+
+        .main-title {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3); /* テキストの影を強化 */
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .sub-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 300;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3); /* テキストの影を追加 */
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards 0.2s;
+        }
+
+        .highlight-box {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(8px);
+            border-radius: 12px;
+            border-left: 4px solid #FF6600;
+            padding: 20px;
+            margin-bottom: 40px;
+            max-width: 520px;
+            transform: perspective(1000px) rotateX(3deg);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 0.4s;
+        }
+
+        .pain-point {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3); /* テキストの影を追加 */
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, transparent 30%, rgba(255, 102, 0, 0.3) 70%);
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        /* CTA ボタン */
+        .cta-area {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 0.6s;
+        }
+
+        .primary-btn {
+            background: linear-gradient(135deg, #FF6600 0%, #FF8C38 100%);
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 600;
+            padding: 18px 36px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 25px; /* スクロールダウンとの間隔を広げる */
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-icon {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .primary-btn:hover .btn-icon {
+            transform: translateX(5px);
+        }
+
+        .scroll-text {
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.9);
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3); /* テキストの影を追加 */
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            z-index: 10;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards 1s;
+        }
+
+        .scroll-arrow {
+            width: 30px;
+            height: 30px;
+            position: relative;
+            animation: bounce 2s infinite;
+        }
+
+        /* 問題セクション */
+        .problem {
+            background-color: #f9f9f9;
+            position: relative;
+        }
+
+        .problem::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background: linear-gradient(135deg, #f9f9f9 25%, transparent 25%) -50px 0,
+                        linear-gradient(225deg, #f9f9f9 25%, transparent 25%) -50px 0,
+                        linear-gradient(315deg, #f9f9f9 25%, transparent 25%),
+                        linear-gradient(45deg, #f9f9f9 25%, transparent 25%);
+            background-size: 100px 100px;
+            background-color: #ffffff;
+        }
+
+        .solution-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .solution-title {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #FF6600;
+        }
+
+        /* 特徴セクション */
+        .features {
+            background: linear-gradient(135deg, #f6f9fc 0%, #eef3f9 100%);
+        }
+
+        .feature-title {
+            font-size: 28px;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .feature-item:nth-child(1) { animation-delay: 0.2s; }
+        .feature-item:nth-child(2) { animation-delay: 0.4s; }
+        .feature-item:nth-child(3) { animation-delay: 0.6s; }
+        .feature-item:nth-child(4) { animation-delay: 0.8s; }
+        .feature-item:nth-child(5) { animation-delay: 1.0s; }
+
+        .feature-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            color: #FF6600;
+            margin-bottom: 20px;
+        }
+
+        .feature-item h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        /* 成果セクション */
+        .results {
+            text-align: center;
+        }
+
+        .testimonial-box {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .testimonial-box::before {
+            content: '"';
+            position: absolute;
+            top: 0;
+            left: 20px;
+            font-size: 120px;
+            color: rgba(0,0,0,0.05);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .stat-highlight {
+            font-size: 72px;
+            font-weight: 700;
+            color: #FF6600;
+            margin: 20px 0;
+            animation: pulse 2s infinite;
+        }
+
+        /* 専門家セクション */
+        .experts {
+            background-color: #2c3e50;
+            color: white;
+        }
+
+        .experts .section-title:after {
+            background: white;
+        }
+
+        .expert-box {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .expert-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #ddd;
+            margin-right: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+            background-image: url('images/expert1.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .expert-info h3 {
+            color: #FF6600;
+            margin-bottom: 10px;
+        }
+
+        /* 特典セクション */
+        .benefits {
+            background: linear-gradient(135deg, #f6f9fc 0%, #eef3f9 100%);
+        }
+
+        .benefit-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .benefit-item:nth-child(1) { animation-delay: 0.2s; }
+        .benefit-item:nth-child(2) { animation-delay: 0.4s; }
+        .benefit-item:nth-child(3) { animation-delay: 0.6s; }
+        .benefit-item:nth-child(4) { animation-delay: 0.8s; }
+        .benefit-item:nth-child(5) { animation-delay: 1.0s; }
+
+        .benefit-icon {
+            font-size: 24px;
+            color: #FF6600;
+            margin-right: 20px;
+            min-width: 30px;
+            text-align: center;
+        }
+
+        .campaign-box {
+            background: #FF6600;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 700;
+            margin: 40px 0;
+            animation: pulse 2s infinite;
+        }
+
+        /* 価格セクション */
+        .pricing {
+            text-align: center;
+        }
+
+        .price-box {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .price-regular {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 24px;
+        }
+
+        .price-current {
+            font-size: 48px;
+            font-weight: 700;
+            color: #FF6600;
+            margin: 20px 0;
+        }
+
+        .price-per-day {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        /* 体験談セクション */
+        .reviews {
+            background: linear-gradient(135deg, #f6f9fc 0%, #eef3f9 100%);
+        }
+
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .review-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            position: relative;
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .review-card:nth-child(1) { animation-delay: 0.2s; }
+        .review-card:nth-child(2) { animation-delay: 0.4s; }
+        .review-card:nth-child(3) { animation-delay: 0.6s; }
+
+        .review-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 60px;
+            color: rgba(0,0,0,0.05);
+            font-family: Georgia, serif;
+        }
+
+        .reviewer-info {
+            margin-top: 20px;
+            font-style: italic;
+            color: #666;
+        }
+
+        /* FAQ セクション */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .faq-question {
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+        }
+
+        .faq-question-icon {
+            margin-right: 10px;
+            color: #FF6600;
+            font-size: 20px;
+        }
+
+        .faq-answer {
+            line-height: 1.6;
+        }
+
+        /* 追伸セクション */
+        .ps {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: white;
+        }
+
+        .founder-message {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            padding: 30px;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .founder-message::before {
+            content: '"';
+            position: absolute;
+            top: 0;
+            left: 20px;
+            font-size: 120px;
+            color: rgba(255,255,255,0.1);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        /* フッター */
+        footer {
+            background: #1a2530;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .footer-link {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 102, 0, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255, 102, 0, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 102, 0, 0); }
+        }
+
+        @keyframes scrollDown {
+            0% {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateX(-50%) translateY(20px);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* スクロールアニメーション */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s ease;
+        }
+
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* レスポンシブデザイン */
+        @media (max-width: 992px) {
+            .hero-content {
+                justify-content: center;
+                padding-left: 0;
+            }
+            
+            .content-wrapper {
+                text-align: center;
+                padding: 25px;
+                margin: 0 20px;
+            }
+            
+            .highlight-box {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .cta-area {
+                align-items: center;
+            }
+            
+            .expert-box {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .expert-image {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 0;
+            }
+            .container {
+                padding: 0 20px;
+            }
+            .main-title {
+                font-size: 2.8rem;
+            }
+            .sub-title {
+                font-size: 1.4rem;
+            }
+            .pain-point {
+                font-size: 1rem;
+            }
+            .primary-btn {
+                padding: 15px 30px;
+                font-size: 1.1rem;
+            }
+            .feature-grid, .review-grid {
+                grid-template-columns: 1fr;
+            }
+            .feature-item, .review-card {
+                padding: 20px;
+            }
+            .price-current {
+                font-size: 36px;
+            }
+            .testimonial-box, .price-box {
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 2.2rem;
+            }
+            .sub-title {
+                font-size: 1.1rem;
+            }
+            .highlight-box {
+                padding: 15px;
+            }
+            .section-title {
+                font-size: 24px;
+            }
+            .benefit-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            .benefit-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            .footer-links {
+                flex-direction: column;
+            }
+            .footer-link {
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ファーストビュー / ヘッダーセクション -->
+    <section class="hero-section" id="top">
+        <!-- 背景画像 -->
+        <div class="bg-image"></div>
+        
+        <!-- 背景オーバーレイ -->
+        <div class="overlay"></div>
+
+        <!-- 斜めの装飾 -->
+        <div class="diagonal-accent"></div>
+
+        <!-- メインコンテンツ -->
+        <div class="hero-content">
+            <div class="content-wrapper">
+                <h1 class="main-title">最短2ヶ月で<br>TOEIC 800点突破</h1>
+                <h2 class="sub-title">あなたの時間を無駄にしない英語学習</h2>
+                
+                <div class="highlight-box">
+                    <p class="pain-point">
+                        あなたのTOEIC学習をより効率的に。
+                    </p>
+                    <p class="pain-point">
+                        最適な学習方法と専門的なコーチングで、<span class="highlight">最短2ヶ月</span>での目標達成をサポートします。
+                    </p>
+                </div>
+                
+                <div class="cta-area">
+                    <a href="#contact" class="primary-btn">
+                        無料カウンセリングを予約する
+                        <span class="btn-icon">→</span>
+                    </a>
+                    <div class="scroll-text">Scroll Down</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- スクロールインジケーター -->
+        <div class="scroll-indicator">
+            <div class="scroll-arrow">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 5v14M5 12l7 7 7-7"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- 問題セクション -->
+    <section class="problem" id="problem">
+        <div class="container">
+            <div class="solution-intro scroll-animate">
+                <h2 class="solution-title">忙しいビジネスパーソンのための、効率重視のパーソナルコーチング「DEMO」</h2>
+                <p>
+                    オンライン英語コーチング「DEMO」は、あなたの貴重な時間を最大限に活かし、最短ルートでTOEIC800点突破へと導くプログラムです。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特徴セクション -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="feature-title scroll-animate">なぜ「DEMO」は短期間で結果を出せるのか？</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>完全オーダーメイドカリキュラム</h3>
+                    <p>一人ひとりの弱点を徹底分析し、あなただけの学習プランを設計します。時間を無駄にせず、効率的に弱点を強化できます。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📖</div>
+                    <h3>元TOEIC試験官監修の独自教材</h3>
+                    <p>試験のポイントを熟知したプロフェッショナルによる教材で、出題パターンを効率的に学習。スコアアップに直結する内容を厳選しています。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">👨‍🏫</div>
+                    <h3>週2回のマンツーマンコーチング</h3>
+                    <p>オンラインで場所を選ばず、あなたの弱点を集中的に強化。マンツーマンだからこそ、質問もその場で解決できます。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💬</div>
+                    <h3>24時間質問対応システム</h3>
+                    <p>学習中の疑問をその場で解決し、モチベーション低下を防止。いつでもどこでも質問できる環境が継続的な学習をサポートします。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI活用の学習進捗分析</h3>
+                    <p>あなたの学習パターンを分析し、最適な学習方法を提案。データに基づいた科学的アプローチで効率的な学習を実現します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 成果セクション -->
+    <section class="results" id="results">
+        <div class="container">
+            <h2 class="section-title scroll-animate">「DEMO」で手に入れる未来</h2>
+            <div class="testimonial-box scroll-animate">
+                <p>
+                    田中さん（34歳・IT企業勤務）は入社5年目で海外部門への異動を希望していましたが、社内基準のTOEIC800点に届かず諦めかけていました。
+                </p>
+                <p>
+                    「英語は学生時代から苦手で、独学での勉強も長続きしませんでした。DEMOを始めて驚いたのは、自分の弱点が明確になったこと。特に文法と読解の苦手分野に集中的にアプローチする学習法で、8週間で650点から830点まで上がりました。今は念願の海外部門で働いています」
+                </p>
+            </div>
+            <div style="margin: 60px 0;">
+                <div class="scroll-animate">
+                    <p style="font-size: 24px;">受講生の</p>
+                    <div class="stat-highlight">90%</div>
+                    <p style="font-size: 24px;">が目標スコアを達成</p>
+                </div>
+                <p class="scroll-animate">あなたも最短2ヶ月で人生を変えるTOEICスコアを手に入れませんか？</p>
+                <div style="margin-top: 30px;" class="scroll-animate">
+                    <a href="#contact" class="primary-btn">
+                        無料カウンセリングを予約する
+                        <span class="btn-icon">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 専門家セクション -->
+    <section class="experts" id="experts">
+        <div class="container">
+            <h2 class="section-title scroll-animate">プログラムを監修する専門家</h2>
+            <div class="expert-box scroll-animate">
+                <div class="expert-image"></div>
+                <div class="expert-info">
+                    <h3>元TOEIC試験官と満点取得者によるプログラム</h3>
+                    <p>
+                        「DEMO」は、<strong>元TOEIC試験官</strong>と<strong>TOEIC990点（満点）取得者</strong>を含む経験豊富なコーチ陣が提供しています。英語教育における10年以上の実績と、教育工学の専門家による科学的アプローチで、累計5,000人以上の受講生を目標達成へと導いてきました。
+                    </p>
+                    <p>
+                        大手企業での研修プログラムとしても採用されている確かな実績と信頼があります。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特典セクション -->
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <h2 class="section-title text-center scroll-animate">特別オファー</h2>
+            <p class="text-center scroll-animate">今なら「DEMO」プログラムにお申込みいただくと、以下の特典が付いてきます：</p>
+            <div class="benefit-list">
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎁</div>
+                    <div>
+                        <strong>特典1</strong>: 無料カウンセリング（60分）＋英語力診断テスト
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">📝</div>
+                    <div>
+                        <strong>特典2</strong>: 「TOEIC頻出単語800」PDF教材プレゼント
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">📚</div>
+                    <div>
+                        <strong>特典3</strong>: 【先着30名限定】TOEIC公式問題集（最新版）プレゼント
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🔄</div>
+                    <div>
+                        <strong>特典4</strong>: 2週間の全額返金保証
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">⏱️</div>
+                    <div>
+                        <strong>特典5</strong>: 目標スコア未達成の場合、追加1ヶ月無料延長
+                    </div>
+                </div>
+            </div>
+            <div class="campaign-box scroll-animate">
+                <p style="font-size: 24px;">期間限定キャンペーン</p>
+                <p style="font-size: 18px; margin-top: 10px;">このオファーは、3月31日までの期間限定です！</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 価格セクション -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2 class="section-title scroll-animate">価格</h2>
+            <p class="scroll-animate">
+                通常、こうした個別指導型のTOEIC対策コーチングは、3ヶ月で30万円以上するプログラムがほとんどです。
+            </p>
+            <p class="scroll-animate">
+                しかし「DEMO」では、より多くの方にTOEIC800点突破の喜びを体験していただきたいという想いから—
+            </p>
+            <div class="price-box scroll-animate">
+                <div class="price-regular">通常価格: 300,000円</div>
+                <div class="price-current">198,000円<span style="font-size: 24px;">（税込）</span></div>
+                <div class="price-per-day">1日あたり約3,300円の投資で、あなたのキャリアを大きく変える英語力を手に入れられます。</div>
+                <a href="#contact" class="primary-btn">
+                    無料カウンセリングを予約する
+                    <span class="btn-icon">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 体験談セクション -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <h2 class="section-title text-center scroll-animate">受講生の声</h2>
+            <div class="review-grid">
+                <div class="review-card">
+                    <p>
+                        「入社前に短期間でスコアを上げる必要があり、DEMOを利用しました。8週間で250点アップし、無事に800点を突破できました！」
+                    </p>
+                    <div class="reviewer-info">28歳、商社内定者</div>
+                </div>
+                <div class="review-card">
+                    <p>
+                        「3回目のTOEIC受験でようやく800点を超えることができました。分析に基づいた弱点克服が効果的でした。」
+                    </p>
+                    <div class="reviewer-info">34歳、IT企業勤務</div>
+                </div>
+                <div class="review-card">
+                    <p>
+                        「子育てと仕事で忙しい中でも続けられるプログラムでした。スマホでのスキマ時間学習と週末のコーチングの組み合わせが良かったです。」
+                    </p>
+                    <div class="reviewer-info">37歳、ワーキングマザー</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ セクション -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title text-center scroll-animate">よくあるご質問</h2>
+            <div class="faq-container">
+                <div class="faq-item scroll-animate">
+                    <div class="faq-question">
+                        <div class="faq-question-icon">❓</div>
+                        本当に2ヶ月でTOEIC800点を達成できますか？
+                    </div>
+                    <div class="faq-answer">
+                        受講生の90%が目標スコアを達成しています。ただし、学習開始時のスコアや学習時間によって個人差があります。現在600点以上の方であれば、週5時間以上の学習で2ヶ月での800点突破が十分可能です。
+                    </div>
+                </div>
+                <div class="faq-item scroll-animate">
+                    <div class="faq-question">
+                        <div class="faq-question-icon">❓</div>
+                        忙しくても続けられますか？
+                    </div>
+                    <div class="faq-answer">
+                        はい。プログラムはスキマ時間を活用する設計になっており、週2回のオンラインコーチングは夜間・週末も対応しています。忙しいビジネスパーソンでも無理なく続けられるようサポートします。
+                    </div>
+                </div>
+                <div class="faq-item scroll-animate">
+                    <div class="faq-question">
+                        <div class="faq-question-icon">❓</div>
+                        どんな人に向いていますか？
+                    </div>
+                    <div class="faq-answer">
+                        短期間で確実にTOEICスコアを上げたい方、効率的な学習法を知りたい方、忙しくても確実に英語力を伸ばしたいビジネスパーソンに特におすすめです。ただし、週に5時間以上の学習時間を確保できない方やオンライン学習に抵抗がある方には不向きかもしれません。
+                    </div>
+                </div>
+                <div class="faq-item scroll-animate">
+                    <div class="faq-question">
+                        <div class="faq-question-icon">❓</div>
+                        返金保証はありますか？
+                    </div>
+                    <div class="faq-answer">
+                        はい。2週間の全額返金保証をご用意しています。また、目標スコア未達成の場合は追加1ヶ月の無料延長もご用意しています。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 追伸セクション -->
+    <section class="ps" id="ps">
+        <div class="container">
+            <h2 class="section-title scroll-animate">追伸</h2>
+            <div class="founder-message scroll-animate">
+                <p>
+                    <strong>DEMO創設者の山田より</strong>
+                </p>
+                <p>
+                    私自身、かつてはTOEIC450点の英語苦手人間でした。転職の際に800点が必要となり、様々な教材や英会話スクールを試しましたが成果が出ず、膨大な時間とお金を無駄にした経験があります。
+                </p>
+                <p>
+                    そんな経験から「本当に効果的で、忙しい社会人でも続けられる英語学習法」を探求し、DEMOが誕生しました。これまで5,000人以上の方々が目標達成を果たし、キャリアアップや人生の新たなステージへと進まれています。
+                </p>
+                <p>
+                    あなたの貴重な時間とエネルギーを無駄にせず、確実に目標を達成するお手伝いをさせてください。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- お問い合わせセクション -->
+    <section id="contact" class="pricing">
+        <div class="container text-center">
+            <h2 class="section-title scroll-animate">今すぐ無料カウンセリングに申し込む</h2>
+            <div style="margin: 40px 0;" class="scroll-animate">
+                <a href="#" class="primary-btn">
+                    無料カウンセリングを予約する
+                    <span class="btn-icon">→</span>
+                </a>
+            </div>
+            <p class="scroll-animate">
+                <strong>このオファーは、3月31日までの期間限定です！</strong><br>
+                先着30名様限定の特典もございますので、お早めにお申し込みください。
+            </p>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer>
+        <div class="container">
+            <p>© 2025 DEMO英語コーチング. All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="#" class="footer-link">プライバシーポリシー</a>
+                <a href="#" class="footer-link">特定商取引法に基づく表記</a>
+                <a href="#" class="footer-link">利用規約</a>
+                <a href="#" class="footer-link">運営会社</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // スクロールアニメーション
+        document.addEventListener('DOMContentLoaded', function() {
+            const scrollAnimates = document.querySelectorAll('.scroll-animate');
+            
+            const checkScroll = function() {
+                scrollAnimates.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.2;
+                    
+                    if(elementPosition < screenPosition) {
+                        element.classList.add('visible');
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', checkScroll);
+            checkScroll(); // 初期表示時にも実行
+        });
+    </script>
+</body>
+</html>
